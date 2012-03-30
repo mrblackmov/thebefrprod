@@ -2,10 +2,10 @@
 <html>
 	<head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="The Befr Production.css" />
+        <link rel="stylesheet" href="style.css" />
 		<title>THE BEFR PRODUCTION</title>	
 	</head>
-
+<!--#include virtual="series.html"-->
 	<body>
 		<div id="Content">
 			<!-- Start Logo -->
@@ -18,17 +18,18 @@
 			<!-- menu d곯ulant -->
 			<div id="Top">
 				<ul id="menu"><
-					<li><a href="/thebefrprod/thebefrprod.toile-libre.org-web/htdocs/Site/index">Accueil</a></li>
-					<li><a href="/thebefrprod/thebefrprod.toile-libre.org-web/htdocs/Site/Les séries">Les séries</a>
+					<li><a href="/Acceuil">Accueil</a></li>
+					<li><a href="/Les séries">Les séries</a>
 						<ul>
 							<li><a href="#">Minecraft</a>
-                                <ul>
-                                    <li><a href="#">SkinCraft</a></li>
-                                </ul>
-								</li>
+                                    <ul class='children'>
+                                <li><a href="#">SkinCraft</a></li>
+                                <li><a href="#">RomeCraft</a></li>
+                                    </ul>
+							</li>
 							<li><a href="#">Total-war</a>
-								<ul>
-									<li><a href="#">RomeCraft</a></li>
+								<ul class='children'>
+									<li><a href="#">Rome</a></li>
 								</ul>
 								</li>
 						</ul>
@@ -72,7 +73,16 @@
 						</p>
 				</center>
 			</div>
-http://www.youtube.com/watch?v=LQ42CFfrTl0
+
+<form action="http://www.toile-libre.org/tools/irc/chatter.php?origine=TheBefrProduction method="post" target="453" onsubmit="this.target = new Date().getMilliseconds(); w = window.open('', this.target, 'scrollbars=no, menubar=no, toolbar=no, resizable=yes, screenX=60, screenY=60, width=720, height=510'); if (w != null && !w.closed) w.focus(); else this.target = '_top'; return(true);">
+
+Pseudo <input name="nickname" class="zone" size="30" maxlength="30" value="Pseudo" type="text">
+
+Mot de passe <input name="pass" size="15" maxlength="32" value="" type="password"> (Mot de passe uniquement pour les personnes ayant enregistré leur pseudo sur le chat)
+
+<!--REMPLACEZ toile-libre par le nom de votre canal, sans le "#"--> <input type="hidden" name="channel" value="toile-libre" />
+
+<input name="submit" value="Connexion" type="submit" /> </form>
 			<div id="Bottom">
 			The Befr Production</br>
 			Copyright (C) 2012 France-Belgique

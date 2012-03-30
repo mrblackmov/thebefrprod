@@ -1,0 +1,156 @@
+/*image de fond*/
+body
+{
+	background-color: BLACK;
+	text-shadow: 2px 2px 4px white;
+	border-radius: 10px;
+}
+
+/*couleur texte*/
+p
+{
+    color: white;
+}
+
+/* bordure des textes*/
+#Content
+{
+    background-image: url("capture.png");
+	background-color: BLACK;
+	background-position: left bottom;
+    background-repeat: repeat-x;
+	border-radius: 10px;
+    border-left: 2px groove white;
+    border-right: 2px groove white;
+	border-bottom : 2px groove white;
+	border-top : 2px groove white
+}
+h1
+{
+    border: 3px black groove;
+}
+
+#Top
+{
+	width : 1025px;
+	margin: 0px auto;
+}
+
+#Middle
+{
+	min-height: 500px;
+	margin-top: 30px;
+}
+#Bottom
+{
+	position: relative;
+	width: 200px;
+	margin: 30px auto;
+}
+
+#Banniere
+{
+	width: 800px;
+	margin : 15px auto 15px;
+}
+/*menu déroulant*/
+#menu, #menu ul /* Liste */     
+{
+        padding : 0; /* pas de marge intérieure */
+        margin : 0; /* ni extérieure */
+        list-style : none; /* on supprime le style par défaut de la liste */
+        line-height : 21px; /* on définit une hauteur pour chaque élément */
+        text-align : center; /* on centre le texte qui se trouve dans la liste */
+}
+
+#menu /* Ensemble du menu */
+{
+        font-weight : none; /* on met le texte en gras */
+        font-family : Comic sans ms; /* on utilise Arial, c'est plus beau ^^ */
+        font-size : 15px; /* hauteur du texte : 12 pixels */
+}
+
+#menu a /* Contenu des listes */
+{
+        display : block; /* on change le type d'élément, les liens deviennent des balises de type block */
+        padding : 0; /* aucune marge intérieure */
+        background : #000; /* couleur de fond */        
+        color : orange; /* couleur du texte */
+        text-decoration : none; /* on supprime le style par défaut des liens (la plupart du temps = souligné) */
+        width : 144px; /* largeur */
+}
+#menu li ul li a 
+{
+         background     :  url("") repeat ;
+}
+#menu li /* Elements des listes */      
+{ 
+        float : left; 
+        /* pour IE qui ne reconnaît pas "transparent" */
+        border-right : 1px solid #fff; /* on met une bordure blanche à droite de chaque élément */
+}
+
+/* IE ne reconnaissant pas le sélecteur ">" */
+html>body #menu li
+{
+        border-right: 1px solid transparent ; /* on met une bordure transparente à droite de chaque élément */
+}
+
+#menu li ul /* Sous-listes */
+{ 
+        position: absolute; /* Position absolue */
+        width: 144px; /* Largeur des sous-listes */
+        left: -999em; /* Hop, on envoie loin du champ de vision */
+}
+
+
+#menu li ul li /* Éléments de sous-listes */
+{
+        /* pour IE qui ne reconnaît pas "transparent" (comme précédemment) */
+        border-top : 1px solid #fff; /* on met une bordure blanche en haut de chaque élément d'une sous liste */
+}
+
+/* IE ne reconnaissant pas le sélecteur ">" */
+html>body #menu li ul li                
+{
+        border-top : 1px solid transparent; /* on met une bordure transparente en haut de chaque élément */
+}
+
+#menu li ul ul 
+{
+        margin    : -22px 0 0 144px ; /* On décale les sous-sous-listes pour qu'elles ne soient pas au dessus des sous-listes */ 
+        /* pour IE qui ne reconnaît pas "transparent" (comme précédemment) */
+        border-left     : 4px solid #fff ; /* Petite bordure à gauche pour ne pas coller ... */      
+}
+
+/* IE ne reconnaissant pas le sélecteur ">" ... je me répète ;-) */
+html>body #menu li ul ul                
+{
+        border-left     : 1px solid transparent ; /* on met une bordure transparente sur la gauche de chaque élément */
+}
+#menu a:hover /* Lorsque la souris passe sur un des liens */    
+{
+        color: red; /* On passe le texte en rouge... */
+        background: black; /* ... et au contraire, le fond en noir */
+}
+sfHover = function() {
+        var sfEls = document.getElementById("menu").getElementsByTagName("LI");
+        for (var i=0; i<sfEls.length; i++) {
+                sfEls[i].onmouseover=function() {
+                        this.className+=" sfhover";
+                }
+                sfEls[i].onmouseout=function() {
+                        this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+                }
+        }
+}
+if (window.attachEvent) window.attachEvent("onload", sfHover);
+#menu li:hover ul ul, #menu li.sfhover ul ul /* Sous-sous-listes lorsque la souris passe sur un élément de liste */
+{
+        left: -999em; /* On expédie les sous-sous-listes hors du champ de vision */
+}
+
+#menu li:hover ul, #menu li li:hover ul, #menu li.sfhover ul, #menu li li.sfhover ul  /* Sous-listes lorsque la souris passe sur un élément de liste ET sous-sous-lites lorsque la souris passe sur un élément de sous-liste */
+{
+        left: auto; /* Repositionnement normal */
+        min-height: 0; /* Corrige un bug sous IE */
